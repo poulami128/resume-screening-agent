@@ -1,3 +1,6 @@
+sentence-transformers
+torch
+scikit-learn
 streamlit
 openai
 python-dotenv
