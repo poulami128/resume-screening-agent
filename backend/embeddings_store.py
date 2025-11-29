@@ -11,9 +11,13 @@ if OPENAI_KEY:
     try:
         import openai
         openai.api_key = OPENAI_KEY
-    except Exception as e:
-        log.warning("openai package not available: %s", e)
-        openai = None
+   import traceback
+except Exception as e:
+    # log full traceback + repr to help debugging in cloud logs
+    log.error("OpenAI embeddings request failed: %s", repr(e))
+    log.error("Traceback:\n%s", traceback.format_exc())
+    raise RuntimeError("OpenAI embedding failed: " + repr(e))
+
 else:
     openai = None
 
