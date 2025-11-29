@@ -85,15 +85,28 @@ def compute_scores(jd_text: str, resumes: List[Dict]) -> List[Dict]:
         except Exception:
             return 0.0
 
-    results = []
-    for r_meta, vec in zip(safe_resumes, resume_vectors):
-        try:
-            score = float(cosine(jd_vec, vec))
-        except Exception:
-            score = 0.0
-        r = {**r_meta}
-        r["score"] = score
-        results.append(r)
+    from backend.parser import extract_skills_from_text
+
+jd_skills = set(extract_skills_from_text(jd_text.lower()))
+
+results = []
+for r_meta, vec in zip(safe_resumes, resume_vectors):
+    try:
+        score = float(cosine(jd_vec, vec))
+    except Exception:
+        score = 0.0
+
+    # Determine matched skills
+    resume_text = r_meta.get("text", "").lower()
+    resume_skills = set(extract_skills_from_text(resume_text))
+    matched = list(jd_skills.intersection(resume_skills))
+
+    r = { **r_meta }
+    r["score"] = score
+    r["matched_skills"] = matched
+
+    results.append(r)
+
 
     # Optionally sort by score descending
     results.sort(key=lambda x: x.get("score", 0.0), reverse=True)
