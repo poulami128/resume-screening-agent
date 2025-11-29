@@ -4,7 +4,7 @@
 **Built for:** AI Agent Development Challenge  
 **Author:** Your Name Here  
 **Demo:** https://<your-username>-resume-screening-agent.streamlit.app  
-**Repo:** https://github.com/<your-username>/<your-repo>
+**Repo:** https://github.com/poulami128/resume-screening-agent
 
 ---
 
@@ -23,9 +23,9 @@ Key capabilities:
 ## Demo Link
 Open the live demo here:
 
-`https://<your-username>-resume-screening-agent.streamlit.app`
+https://resume-screening-agent-jwcznsj2yiokfmlhqcuxrs.streamlit.app/
 
-(Replace with your actual Streamlit URL)
+
 
 ---
 
@@ -64,3 +64,4 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
 
 streamlit run app.py
+
