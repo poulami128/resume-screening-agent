@@ -46,6 +46,8 @@ https://resume-screening-agent-jwcznsj2yiokfmlhqcuxrs.streamlit.app/
 5. Results displayed with explanations and CSV export.
 
 Mermaid diagram included in README (or see diagram.png).
+<img width="4407" height="649" alt="Untitled diagram-2025-11-29-072900" src="https://github.com/user-attachments/assets/8e4901b7-65de-4869-9b7e-740a290c895f" />
+
 
 ---
 
@@ -64,4 +66,5 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
 
 streamlit run app.py
+
 
